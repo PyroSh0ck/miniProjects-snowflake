@@ -11,7 +11,7 @@ sources:
         columns:
           # Filtration based on whatever we write in tests
           # Current its just making sure that we don't get duplicates or null keys
-          - names: o_orderkey
+          - name: o_orderkey
             tests:
               - unique
               - not_null
@@ -25,5 +25,6 @@ sources:
               # on the orders table that corresponds to the foreign key listed
               # on the lineitem table.
               - relationships:
-                to: source('tpch', 'orders')
-                field: o_orderkey
+                  arguments:
+                    to: source('tpch', 'orders')
+                    field: o_orderkey
