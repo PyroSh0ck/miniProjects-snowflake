@@ -9,3 +9,6 @@ and Airflow for deployment and orchestration.
 This project will be using the TPC-H dataset provided by Snowflake's free datasets.
 
 ## Setup
+
+In Snowflake, we'll need a role, a database, and a warehouse, with the role
+having access to all of your databases in the data warehouse.
