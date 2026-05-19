@@ -18,3 +18,23 @@ with your actual account name in Snowflake. Then you run `dbt init` in your
 terminal and connect to your Snowflake account (you need the locator URL not id).
 For the project, I ended up using 10 threads, although I don't think it should
 matter.
+
+## Notes
+
+Staging tables are supposed to be identical to the source tables. However,
+we want to transform the models for whatever business transformation we want,
+like creating fact tables.
+
+### Fact Table
+
+A fact table is a table that contains the results of some kind of
+real-world measurement event. In other words, it stores quantitative data
+regarding some sort of business activity and contains a bunch of foreign
+keys to other tables, which are called dimensional tables. A fact table is
+usually the MAIN table in a snowflake schema.
+
+Some of the benefits are (from GeeksforGeeks :D):
+
+- Fast analytical queries
+- Efficient joins
+- Easy slicing, dicing, aggregation, and reporting
