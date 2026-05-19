@@ -43,3 +43,10 @@ Some of the benefits are (from GeeksforGeeks :D):
 
 These are effectively the same thing as util functions in web apps. They're an
 easy way to reuse business logic across multiple models.
+
+### Tests
+
+There are two primary types of tests: singular tests and generic tests.
+Singular tests allow you to write SQL queries that return failing rows.
+Generic tests use inbuilt tests in a YML file to find rows that don't meet
+a certain criteria.
