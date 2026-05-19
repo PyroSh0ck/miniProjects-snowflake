@@ -38,3 +38,8 @@ Some of the benefits are (from GeeksforGeeks :D):
 - Fast analytical queries
 - Efficient joins
 - Easy slicing, dicing, aggregation, and reporting
+
+### Macro functions
+
+These are effectively the same thing as util functions in web apps. They're an
+easy way to reuse business logic across multiple models.
