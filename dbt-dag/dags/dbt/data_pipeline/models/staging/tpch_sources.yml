@@ -1,0 +1,30 @@
+version: 2
+
+# Main source is going to be the free TPCH dataset from Snowflake
+sources:
+  - name: tpch
+    database: snowflake_sample_data
+    schema: tpch_sf1
+    # After we grab the necessary information, we'll pull from this table:
+    tables:
+      - name: orders
+        columns:
+          # Filtration based on whatever we write in tests
+          # Current its just making sure that we don't get duplicates or null keys
+          - name: o_orderkey
+            tests:
+              - unique
+              - not_null
+      - name: lineitem
+        columns:
+          # Getting the foreign key of this table (connected to the orders table)
+          - name: l_orderkey
+            tests:
+              # Makes sure to see whether this is a valid foreign key
+              # So the point of this is to see whether there is a orderkey
+              # on the orders table that corresponds to the foreign key listed
+              # on the lineitem table.
+              - relationships:
+                  arguments:
+                    to: source('tpch', 'orders')
+                    field: o_orderkey
