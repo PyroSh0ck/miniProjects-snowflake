@@ -50,3 +50,14 @@ There are two primary types of tests: singular tests and generic tests.
 Singular tests allow you to write SQL queries that return failing rows.
 Generic tests use inbuilt tests in a YML file to find rows that don't meet
 a certain criteria.
+
+## Usage
+
+In order to run singular models, use this command:
+`dbt run -s [model file name without the ".sql"]`.
+In order to run tests, just use `dbt test`.
+Both of the above commands should be run within the data_pipeline directory
+In order to deploy the astro airflow project,
+run `astro dev start` in the dbt-dag directory. Lastly, once
+Airflow has deployed the astro project, go to Admin then Connections
+and add Snowflake as a connection. Then you should be done :D!
